@@ -108,6 +108,7 @@ func Do(params *Params) error {
 	if err != nil {
 		return errors.WithStack(err)
 	}
+	defer patchReader.Close()
 
 	var signature *pwr.SignatureInfo
 	if signaturePath != "" {
